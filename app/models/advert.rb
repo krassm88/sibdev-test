@@ -5,7 +5,7 @@ class Advert < ApplicationRecord
 
   validates :title, :body, presence: true
 
-  before_save do
+  before_create do
     self.end_at = DateTime.now + 2.weeks
   end
 end

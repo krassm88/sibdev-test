@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, path: '/'
+
+  ActiveAdmin.routes(self)
 
   resources :adverts, except: :index
 
