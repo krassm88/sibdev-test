@@ -1,7 +1,17 @@
 ru:
+  activerecord:
+    attributes:
+      advert:
+        body: "Текст"
+        created_at: "Создано"
+        end_at: "Закончится"
+        id: "ID"
+        title: "Заголовок"
+        user: "Автор"
   add_advert: "Добавить обьявление"
   delete: "Удалить"
   edit: "Редактировать"
+  main: "Главная"
   logout: "Выйти"
   save: "Сохранить"
   sign_in: "Войти"

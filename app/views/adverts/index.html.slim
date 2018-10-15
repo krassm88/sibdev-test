@@ -13,6 +13,7 @@
           th= Advert.human_attribute_name(:body)
           th= Advert.human_attribute_name(:user)
           th= Advert.human_attribute_name(:created_at)
+          th= Advert.human_attribute_name(:end_at)
           td
       tbody
         - @adverts.each_with_index do |advert, index|
@@ -21,7 +22,8 @@
             td= advert.title
             td= advert.body
             td= advert.user.email
-            td= l(advert.created_at, format: :short)
+            td= l(advert.created_at, format: :long)
+            td= l(advert.end_at, format: :long)
             td
               - if can? :update, advert
                 => link_to t('edit'), edit_advert_path(advert), class: 'btn btn-sm'

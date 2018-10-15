@@ -1,5 +1,6 @@
 header.navbar
   section.navbar-section
+    = link_to t('main'), root_path, class: 'btn btn-link'
     - if current_user
       .btn.btn-link Вы вошли как: #{current_user.email}
       = link_to t('logout'), destroy_user_session_path, method: :delete, class: 'btn btn-link'

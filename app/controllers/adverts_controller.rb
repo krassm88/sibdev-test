@@ -4,7 +4,7 @@ class AdvertsController < ApplicationController
 
   def index
     authorize! :index, :advert
-    @adverts = Advert.order(created_at: :desc)
+    @adverts = Advert.not_ended.order(created_at: :desc)
   end
 
   def create
