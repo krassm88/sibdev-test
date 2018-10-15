@@ -1,0 +1,15 @@
+= form_with(model: @advert ||= Advert.new, local: true) do |f|
+  .form-group class=('has-error' if f.object.errors[:title].any?)
+    = f.label :title, class: 'form-label'
+    = f.text_field :title, class: 'form-input'
+    - if f.object.errors[:title].any?
+      p.form-input-hint= f.object.errors[:title].first
+
+  .form-group class=('has-error' if f.object.errors[:body].any?)
+    = f.label :body, class: 'form-label'
+    = f.text_area :body, class: 'form-input'
+    - if f.object.errors[:body].any?
+      p.form-input-hint= f.object.errors[:body].first
+
+  .form-group
+    = f.submit t('save'), class: 'btn btn-primary'

@@ -1,0 +1,29 @@
+.columns
+  .column
+    - if can? :create, Advert
+      = link_to t('add_advert'), new_advert_path, class: 'btn btn-primary btn-sm'
+
+.columns
+  .column
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th= Advert.human_attribute_name(:id)
+          th= Advert.human_attribute_name(:title)
+          th= Advert.human_attribute_name(:body)
+          th= Advert.human_attribute_name(:user)
+          th= Advert.human_attribute_name(:created_at)
+          td
+      tbody
+        - @adverts.each_with_index do |advert, index|
+          tr class=('active' if index.odd?)
+            td= advert.id
+            td= advert.title
+            td= advert.body
+            td= advert.user.email
+            td= l(advert.created_at, format: :short)
+            td
+              - if can? :update, advert
+                => link_to t('edit'), edit_advert_path(advert), class: 'btn btn-sm'
+              - if can? :destroy, advert
+                = link_to t('delete'), advert_path(advert), method: :delete, class: 'btn btn-error btn-sm'
