@@ -1,4 +1,11 @@
+require 'sidekiq/web'
+
+
 Rails.application.routes.draw do
+  authenticate :admin_user do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, path: '/'
 

@@ -35,5 +35,7 @@ module SibdevTestboard
       g.assets false
       g.helper false
     end
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
